@@ -8,15 +8,14 @@ export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
   width: 100%;
-  height: 100%;
-  background: ${Colors.primaryBlue};
+  height: calc(100% - 60px);
+  background: black;
   display: grid;
   align-items: center;
-  top: 0;
-  left: 0;
   transition: 0.3s ease-in-out;
-  opacity: ${({ isOpen }) => (isOpen ? "95%" : "0")};
-  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  opacity: 85%;
+  left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  top: 60px;
 `;
 
 export const CloseIcon = styled(FaTimes)`

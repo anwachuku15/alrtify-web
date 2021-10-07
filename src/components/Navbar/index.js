@@ -9,14 +9,21 @@ import {
   NavItem,
   NavLinks,
   NavButtons,
+  NavMenuContainer,
+  MenuIconContainer,
+  MenuIcon,
 } from "./NavbarElements";
 // import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import Button from "../Button";
 import AlrtifyHeader from "./AlrtifyHeader";
 import Colors from "../../constants/Colors";
+import { motion } from "framer-motion";
+import styled from "styled-components";
+import MenuToggle from "./MenuToggle";
+import { Fade as Hamburger } from "hamburger-react";
 
-const Navbar = ({ toggleMenu }) => {
+const Navbar = ({ toggleMenu, isSidebarOpen }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
@@ -25,27 +32,30 @@ const Navbar = ({ toggleMenu }) => {
     <Nav>
       <NavContainer>
         <NavLogo to="/" onClick={toggleHome}>
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundColor: "transparent",
-            }}
-          >
-            <AlrtifyHeader />
-          </div>
+          <AlrtifyHeader />
         </NavLogo>
-        <MobileIcon onClick={toggleMenu}>
+
+        {/* <MobileIcon onClick={toggleMenu}>
           <FaBars color={Colors.primaryBlue} />
+        </MobileIcon> */}
+
+        {/* <MenuIconContainer>
+          <MenuIcon />
+        </MenuIconContainer> */}
+
+        {/* <MenuToggle toggleMenu={toggleMenu} isSidebarOpen={isSidebarOpen} /> */}
+
+        <MobileIcon>
+          <Hamburger
+            toggle={toggleMenu}
+            toggled={isSidebarOpen}
+            size={30}
+            color={Colors.primaryBlue}
+            rounded
+          />
         </MobileIcon>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            color: "white",
-          }}
-        >
+        <NavMenuContainer>
           <NavMenu>
             <NavItem>
               <NavLinks
@@ -101,7 +111,7 @@ const Navbar = ({ toggleMenu }) => {
             <Button title="LOG IN" login />
             <Button title="Invest Now" header investNow />
           </NavButtons>
-        </div>
+        </NavMenuContainer>
       </NavContainer>
     </Nav>
   );

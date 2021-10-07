@@ -11,7 +11,7 @@ const ResponsiveNavbar = () => {
   return (
     <>
       <Sidebar isOpen={isOpen} toggleMenu={toggleMenu} />
-      <Navbar toggleMenu={toggleMenu} />
+      <Navbar isSidebarOpen={isOpen} toggleMenu={toggleMenu} />
     </>
   );
 };
