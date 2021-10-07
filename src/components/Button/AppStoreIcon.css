@@ -1,0 +1,14 @@
+.AppStoreIcon {
+  margin-right: 0.75em;
+  height: 1em;
+  font-size: 0.9375rem;
+  font-family: Styrene, sans-serif;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+  /* color: white; */
+}
