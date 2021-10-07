@@ -69,7 +69,7 @@ const Footer = () => {
                   </Button>
                 </Stack>
               ) : (
-                <Stack spacing={2} direction="row">
+                <Stack spacing={5} direction="row">
                   <Button
                     variant="outlined"
                     fullWidth

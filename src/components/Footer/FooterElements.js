@@ -37,6 +37,7 @@ export const FooterTopWrapper = styled.div`
 export const FooterTopHeaderText = styled.h1`
   font-size: 48px;
   padding-bottom: 30px;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
     font-size: 38px;
@@ -54,7 +55,7 @@ export const FooterTopP = styled.p`
 
 export const Buttons = styled.div`
   /* display: flex; */
-  width: 80%;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
 
@@ -70,6 +71,7 @@ export const Buttons = styled.div`
 
 export const ButtonText = styled.div`
   font-variant: small-caps;
+  font-weight: 700;
 `;
 
 export const FooterBottom = styled.div`
