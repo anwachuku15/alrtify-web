@@ -1,5 +1,6 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
+import HeroSection1 from "../../components/HeroSection1";
 import LifeSavingAlerts from "../../components/LifeSavingAlerts";
 import MapView from "../../components/MapView";
 import Details from "../../components/Details";
