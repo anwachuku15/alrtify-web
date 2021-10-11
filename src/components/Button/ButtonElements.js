@@ -2,17 +2,17 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Colors from "../../constants/Colors";
 
-export const BtnWrapper = styled.div`
+export const BtnWrapper = styled.a`
   display: flex;
-  width: max-content;
+  /* width: max-content; */
+  width: ${({ hero }) => (hero ? "180px" : "100%")};
   height: max-content;
-  align-self: center;
-  /* align-self: center; */
+  align-self: ${({ hero }) => (hero ? "flex-start" : "center")};
   align-items: center;
   justify-content: center;
   /* margin-top: 20px; */
-  /* padding: 0px 20px; */
-  padding: ${({ header }) => (header ? "0px 10px" : "0px 20px")};
+  padding: 0px 10px;
+  margin: 0px 5px;
   background-color: ${({ header, investNow }) =>
     header ? (investNow ? "#2D9CDB" : "#2D9CDB") : "transparent"};
 
@@ -20,12 +20,14 @@ export const BtnWrapper = styled.div`
   border-radius: 10px;
   border-color: ${({ header }) =>
     header ? "transparent" : "rgba(0, 0, 0, 0.22)"};
-  border-color: ${({ hero }) => {
+  /* border-color: ${({ hero }) => {
     if (hero) return "rgba(255,255,255, 0.22)";
-  }};
+  }}; */
   transition: background-color 500ms, border 500ms, opacity 1s ease;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
 
   &:hover {
     /* background-color: ; */
@@ -35,15 +37,44 @@ export const BtnWrapper = styled.div`
   }
 `;
 
+export const InvestBtnWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const InvestNowBtn = styled.a`
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: ${Colors.secondaryBlue};
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  font-variant: small-caps;
+  text-transform: uppercase;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: rgba(45, 156, 219, 0.5);
+    color: #010606;
+  }
+`;
+
 export const BtnText = styled.p`
   display: flex;
   /* color: white; */
   color: rgb(142, 142, 154);
   color: ${({ login }) => (login ? "rgb(142, 142, 154)" : "white")};
   /* text-decoration: none; */
-  font-size: 0.75rem;
+  font-size: ${({ investNow }) => (investNow ? "0.9rem" : "0.7rem")};
   font-weight: 700;
-  padding: 0px;
+  padding: ${({ investNow }) => (investNow ? "0px 10px" : "0px")};
   margin: 0px;
   margin-top: 9px;
   margin-bottom: 9px;
@@ -51,10 +82,6 @@ export const BtnText = styled.p`
   white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-
-  width: ${({ hero }) => {
-    if (hero) return "180px";
-  }};
 `;
 
 export const HeroBtnWrapper = styled.div`
@@ -123,6 +150,6 @@ export const HeroLinkText = styled.span`
   margin-top: -2px;
 
   @media screen and (min-width: 32em) {
-    font-szie: 1rem;
+    font-size: 1rem;
   }
 `;
