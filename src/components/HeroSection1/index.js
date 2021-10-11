@@ -17,6 +17,7 @@ import {
 } from "./HeroElements";
 import Button from "../Button";
 import Video from "../../assets/videos/herovideo.mp4";
+import { Whitespace } from "../HeroSection/HeroElements";
 
 const HeroSection = () => {
   return (
@@ -54,6 +55,7 @@ const HeroSection = () => {
             </HeroPhoneContainer>
           </HeroRight>
         </HeroContent>
+        <Whitespace />
       </HeroWrapper>
       {/* <HeroBottomDiv /> */}
     </HeroContainer>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./HeroSection.css";
 import {
   HeroContainer,
   HeroContent,
@@ -8,6 +9,8 @@ import {
   HeroWrapper,
   HeroP,
   HeroPBold,
+  ButtonsWrapper,
+  ButtonsDiv,
   PhoneWrapper,
   PhoneContainer,
   PhoneDiv,
@@ -15,14 +18,17 @@ import {
   HeroContentRow,
   Column1,
   Column2,
+  Whitespace,
 } from "./HeroElements";
 import Video from "../../assets/videos/herovideo.mp4";
-// import Button from "../Button";
-import { Button, Stack, useMediaQuery } from "@mui/material/";
+import Button from "../Button";
+import { Button as MuiButton, Stack, useMediaQuery } from "@mui/material/";
 import { Buttons, ButtonText } from "../Footer/FooterElements";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GooglePlay from "../Footer/GooglePlay";
 import AppleIcon from "@mui/icons-material/Apple";
+import Colors from "../../constants/Colors";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const HeroSection = () => {
   const theme = createTheme({
@@ -34,90 +40,94 @@ const HeroSection = () => {
     },
   });
 
-  const matches = useMediaQuery("(max-width: 580px)");
+  const matches = useMediaQuery("(max-width: 768px)");
 
   return (
     <HeroWrapper className="HeroWrapper" id="hero">
       <HeroContainer>
         <HeroContentRow>
           <Column1>
-            <HeroH1>Where people protect each other.</HeroH1>
+            <HeroH1>Where people get actionable news.</HeroH1>
             <HeroP>
-              Connect and live more safely. Citizen is a personal safety network
-              that empowers you to protect yourself and the people and places
-              you care about. Download for access to real-time 911 alerts,
-              instant help from crisis responders, and safety tracking for
-              friends and families.
+              Cut the noise and get straight to the news that is most important
+              to you. Alirtify is an intelligence-gathering platform that uses
+              data from news events such as sentiments (positive, neutral,
+              negative), location, and key words to glean real-time insights. We
+              don’t create the news. We just make it relevant and actionable.
+              Download the app to enjoy the modern news experience.
             </HeroP>
-            <HeroPBold>Download Citizen</HeroPBold>
-            {/* <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginTop: 20,
-              }}
-            >
-              <div style={{ marginRight: 15 }}>
-                <Button title="APP STORE" apple />
-              </div>
-              <Button title="GOOGLE PLAY" google />
-            </div> */}
-            <Buttons>
+            <HeroPBold>Download Alirtify</HeroPBold>
+            <ButtonsWrapper>
+              <ButtonsDiv>
+                <Button title="APP STORE" apple hero />
+                <Button title="GOOGLE PLAY" google hero />
+              </ButtonsDiv>
+            </ButtonsWrapper>
+            {/* <Buttons>
               <ThemeProvider theme={theme}>
                 {matches ? (
                   <Stack spacing={2}>
-                    <Button
+                    <MuiButton
                       variant="outlined"
-                      fullWidth
-                      startIcon={<GooglePlay />}
-                    >
-                      <ButtonText> Google Play</ButtonText>
-                    </Button>
-                    <Button
-                      variant="outlined"
-                      fullWidth
+                      // fullWidth
                       startIcon={<AppleIcon />}
                     >
                       <ButtonText>App Store</ButtonText>
-                    </Button>
+                    </MuiButton>
+                    <MuiButton
+                      variant="outlined"
+                      // fullWidth
+                      startIcon={<GooglePlay />}
+                    >
+                      <ButtonText> Google Play</ButtonText>
+                    </MuiButton>
                   </Stack>
                 ) : (
-                  <Stack spacing={5} direction="row">
-                    <Button
+                  <Stack spacing={2} direction="row">
+                    <MuiButton
                       variant="outlined"
-                      fullWidth
-                      startIcon={<GooglePlay />}
-                    >
-                      <ButtonText> Google Play</ButtonText>
-                    </Button>
-                    <Button
-                      variant="outlined"
-                      fullWidth
+                      // fullWidth
                       startIcon={<AppleIcon />}
                     >
                       <ButtonText>App Store</ButtonText>
-                    </Button>
+                    </MuiButton>
+                    <MuiButton
+                      variant="outlined"
+                      // fullWidth
+                      startIcon={<GooglePlay />}
+                    >
+                      <ButtonText> Google Play</ButtonText>
+                    </MuiButton>
                   </Stack>
                 )}
               </ThemeProvider>
-            </Buttons>
+            </Buttons> */}
           </Column1>
           <Column2>
-            <PhoneWrapper>
-              <PhoneContainer>
-                <PhoneDiv>
-                  <PhoneVideo
-                    src={Video}
-                    autoPlay
-                    loop
-                    muted
-                    type="video/mp4"
-                  />
-                </PhoneDiv>
-              </PhoneContainer>
-            </PhoneWrapper>
+            <ScrollAnimation
+              offset={0}
+              animateOnce
+              animateIn="fadeInUpSlow"
+              duration={2}
+              delay={500}
+            >
+              <PhoneWrapper>
+                <PhoneContainer>
+                  <PhoneDiv>
+                    <PhoneVideo
+                      src={Video}
+                      autoPlay={true}
+                      loop
+                      muted
+                      type="video/mp4"
+                    />
+                  </PhoneDiv>
+                </PhoneContainer>
+              </PhoneWrapper>
+            </ScrollAnimation>
           </Column2>
         </HeroContentRow>
+        {/* <Whitespace /> */}
       </HeroContainer>
     </HeroWrapper>
   );

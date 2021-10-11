@@ -2,6 +2,7 @@ import styled from "styled-components";
 import herobg from "../../assets/images/herobg.jpeg";
 
 export const HeroContainer = styled.div`
+  max-width: 1400px;
   background-color: white;
   color: black;
   background-image: url(${herobg});
@@ -9,6 +10,9 @@ export const HeroContainer = styled.div`
   background-position-x: center;
   background-position-y: center;
   background-repeat: no-repeat;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const HeroWrapper = styled.section`
@@ -16,7 +20,8 @@ export const HeroWrapper = styled.section`
   background-color: transparent;
   margin-left: auto;
   margin-right: auto;
-  max-width: 100%;
+  width: 100%;
+  max-width: 90rem;
 
   @media screen and (min-width: 64em) {
     padding: 6rem 75px 4rem;

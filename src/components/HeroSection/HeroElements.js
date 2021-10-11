@@ -5,18 +5,16 @@ import Colors from "../../constants/Colors";
 
 export const HeroWrapper = styled.div`
   display: flex;
-  /* padding-top: 100px; */
   background: ${Colors.primaryBlue};
   color: black;
-  /* background-image: url(${herobg}); */
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
   background-repeat: no-repeat;
   /* justify-content: center; */
   /* align-items: center; */
-  height: 100vh;
-  display: block;
+  /* height: 100vh; */
+  /* display: block; */
   /* position: relative; */
   /* z-index: 1; */
   @media screen and (max-width: 769px) {
@@ -27,26 +25,17 @@ export const HeroWrapper = styled.div`
 export const HeroContainer = styled.section`
   margin-left: auto;
   margin-right: auto;
-  padding-top: 200px;
+  padding-top: 150px;
   width: 100%;
   max-width: 1400px;
   transition: opacity 1s cubic-bezier(0.17, 0.67, 0.21, 0.95) 0s;
-  color: rgb(255, 255, 255);
-  /* background-color: red; */
+  color: white;
   padding-left: 100px;
-  /* padding-top: 150px; */
 
-  /* @media screen and (min-width: 64em) {
-    padding: 6rem 75px 4rem;
+  @media screen and (max-width: 768px) {
+    padding-left: 0;
+    padding-top: 100px;
   }
-
-  @media screen and (min-width: 48em) {
-    padding: 4rem 30px;
-  }
-
-  @media screen and (min-width: 32em) {
-    padding: 2rem 20px;
-  } */
 `;
 
 export const HeroContent = styled.div`
@@ -55,17 +44,9 @@ export const HeroContent = styled.div`
   flex-direction: row;
   /* margin-left: -10px; */
   /* margin-right: -10px; */
-  color: white;
+  /* color: ${Colors.primaryBlue}; */
   /* background-color: red; */
   padding-left: 100px;
-
-  @media screen and (min-width: 48em) {
-    flex-wrap: nowrap;
-  }
-
-  @media screen and (min-width: 32em) {
-    flex-wrap: wrap;
-  }
 `;
 
 export const HeroLeft = styled.div`
@@ -82,19 +63,17 @@ export const HeroLeft = styled.div`
     padding-bottom: 150px;
   }
 
-  @media screen and (min-width: 48em) {
-    /* flex: 0 0 58.3333%; */
+  /* @media screen and (min-width: 48em) {
     max-width: 58.3333%;
     margin-left: 0%;
     padding-bottom: 0rem;
   }
 
   @media screen and (min-width: 32em) {
-    /* flex: 0 0 100%; */
     max-width: 100%;
     margin-left: 0%;
     padding-bottom: 0rem;
-  }
+  } */
 `;
 
 export const HeroRight = styled.div`
@@ -102,29 +81,6 @@ export const HeroRight = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   background-color: red;
-
-  @media screen and (min-width: 64em) {
-    flex: 0 0 25%;
-    max-width: 25%;
-    margin-left: 8.33333%;
-    margin-top: 0rem;
-  }
-
-  @media screen and (min-width: 48em) {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin-left: 8.33333%;
-    margin-top: 0rem;
-    min-width: 340px;
-  }
-
-  @media screen and (min-width: 32em) {
-    flex: 0 0 41.6667%;
-    max-width: 41.6667%;
-    margin-left: 50%;
-    margin-top: -14rem;
-    min-width: 0px;
-  }
 `;
 
 export const HeroContentRow = styled.div`
@@ -165,10 +121,10 @@ export const Column2 = styled.div`
 
 export const HeroH1 = styled.p`
   line-height: 1.05;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.04em;
-  color: white;
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 3rem;
   text-align: left;
   margin: 0px;
   @media screen and (max-width: 768px) {
@@ -181,7 +137,6 @@ export const HeroH1 = styled.p`
 `;
 
 export const HeroP = styled.p`
-  color: white;
   text-align: left;
   font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -210,14 +165,43 @@ export const HeroPBold = styled.p`
   /* padding-bottom: 1rem; */
   margin-top: 1rem;
   margin: 0px;
+  margin-bottom: 10px;
   display: block;
   /* margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px; */
 
-  @media screen and (min-width: 32em) {
-    font-size: 1rem;
+  @media screen and (max-width: 76px) {
+    /* text-align: center; */
+    margin-bottom: 5px;
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+export const ButtonsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+  width: fit-content;
+
+  /* @media screen and (max-width: 768px) {
+    width: 360px;
+  } */
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -262,4 +246,42 @@ export const PhoneVideo = styled.video`
   top: 0px;
   left: 0px;
   object-fit: cover;
+`;
+
+export const Whitespace = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 75px;
+  padding-right: 75px;
+  height: 10rem;
+  margin-top: -10rem;
+  width: 100%;
+  /* max-width: 90rem; */
+  background-color: rgb(255, 255, 255);
+
+  @media screen and (max-width: 1023) {
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 0px;
+    margin-top: 0rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 30vw;
+    margin-top: -30vw;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    max-width: 90rem;
+    background-color: rgb(255, 255, 255);
+    height: 70vw;
+    margin-top: -70vw;
+  }
 `;
