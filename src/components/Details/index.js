@@ -1,5 +1,6 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
+import "./Details.css";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -16,19 +17,53 @@ import {
   LivePillCircle,
   LivePillText,
   LivePillTextWrapper,
-  MaskContainer,
   PhoneWrapper,
   PhoneContainer,
   PhoneDiv,
   PhoneVideo,
+  MaskContainer,
 } from "./DetailsElements";
 import SvgMask from "../MapView/SvgMask";
 import { BackLayer, BackLayerImage } from "../MapView/MapViewElements";
 import Video from "../../assets/videos/herovideo.mp4";
+import {
+  NewsFeedIcon,
+  MyCircleIcon,
+  TrendingIcon,
+  MicIcon,
+  GlobeIcon,
+  VideoIcon,
+  LockedIcon,
+  KeyboardIcon,
+  AddPeopleIcon,
+} from "../Icons";
+import ScrollAnimation from "react-animate-on-scroll";
+import { DetailsCards } from "./CardData";
 
 const Details = () => {
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 768,
+        md: 900,
+        lg: 1024,
+        xl: 1536,
+      },
+    },
+  });
+  const Left = styled(Paper)(({ theme }) => ({
+    // padding: 100,
+    textAlign: "center",
+    color: "white",
+    backgroundColor: "transparent",
+    boxShadow: "none",
+  }));
   const Right = styled(Paper)(({ theme }) => ({
-    padding: 30,
+    paddingTop: 50,
+    paddingRight: 50,
+    paddingBottom: 50,
+    paddingLeft: 0,
     textAlign: "center",
     color: "black",
     backgroundColor: "transparent",
@@ -41,110 +76,104 @@ const Details = () => {
         <SvgMask backgroundColor={Colors.primaryBlue} />
       </MaskContainer>
       <DetailWrapper>
-        {/* <BackLayer>
-          <BackLayerImage />
-        </BackLayer> */}
-
         <HeaderContainer>
           <LiveIndicatorContainer>
-            <LivePill>
+            <div className="live-icon">
+              {/* <LivePill> */}
               <LivePillCircle />
               <LivePillTextWrapper>
                 <LivePillText>LIVE</LivePillText>
               </LivePillTextWrapper>
-            </LivePill>
+              {/* </LivePill> */}
+            </div>
           </LiveIndicatorContainer>
 
           <DetailHeader>
-            <DetailHeaderText>Know the real story faster.</DetailHeaderText>
+            <DetailHeaderText>
+              Validate the story with real facts from people on the ground.
+            </DetailHeaderText>
           </DetailHeader>
           <div
             style={{
-              width: "70%",
+              width: "90%",
               marginLeft: "auto",
               marginRight: "auto",
               marginTop: 50,
             }}
           >
-            <Box sx={{ flexGrow: 1 }}>
-              <Grid container spacing={2}>
-                <Grid item md={6} xs={12}>
-                  <Right>
-                    <PhoneWrapper>
-                      <PhoneContainer>
-                        <PhoneDiv>
-                          <PhoneVideo src={Video} autoPlay muted loop />
-                        </PhoneDiv>
-                      </PhoneContainer>
-                    </PhoneWrapper>
-                  </Right>
+            <ThemeProvider theme={theme}>
+              <Box sx={{ flexGrow: 1 }}>
+                <Grid container>
+                  <Grid item lg={1} />
+                  <Grid item lg={4} md={6} sm={6} xs={12}>
+                    <Left>
+                      <ScrollAnimation
+                        offset={0}
+                        animateOnce
+                        animateIn="fadeInUp"
+                        duration={1.4}
+                      >
+                        <PhoneWrapper>
+                          <PhoneContainer>
+                            <PhoneDiv>
+                              <PhoneVideo src={Video} autoPlay muted loop />
+                            </PhoneDiv>
+                          </PhoneContainer>
+                        </PhoneWrapper>
+                      </ScrollAnimation>
+                    </Left>
+                  </Grid>
+                  <Grid item lg={1} />
+                  <Grid item md={6} sm={6} xs={12}>
+                    <Right>
+                      <div>
+                        {DetailsCards.map((card, index) => {
+                          let delay;
+                          if (index === 0) delay = 0;
+                          else if (index === 1) delay = 200;
+                          else if (index === 2) delay = 400;
+
+                          return (
+                            <ScrollAnimation
+                              offset={0}
+                              animateOnce
+                              animateIn="fadeInRight"
+                              duration={1.5}
+                              delay={delay}
+                            >
+                              <div
+                                style={{ marginBottom: 50, display: "flex" }}
+                              >
+                                <div style={{ minWidth: 40, marginRight: 20 }}>
+                                  <div style={{ height: 40 }}>{card.icon}</div>
+                                </div>
+
+                                <div>
+                                  <h1 style={{ textAlign: "start" }}>
+                                    {card.header}
+                                  </h1>
+                                  <p
+                                    style={{
+                                      fontFamily: "sans-serif",
+                                      fontSize: 20,
+                                      textAlign: "start",
+                                      marginTop: 20,
+                                      lineHeight: 1.4,
+                                    }}
+                                  >
+                                    {card.body}
+                                  </p>
+                                </div>
+                              </div>
+                            </ScrollAnimation>
+                          );
+                        })}
+                      </div>
+                    </Right>
+                  </Grid>
                 </Grid>
-                <Grid item md={6} xs={12}>
-                  <Right>
-                    <div>
-                      <div style={{ marginBottom: 20 }}>
-                        <h1 style={{ textAlign: "start" }}>
-                          See incidents unfold and get the real story from
-                          people on the scene.
-                        </h1>
-                        <p
-                          style={{
-                            fontFamily: "sans-serif",
-                            fontSize: 20,
-                            textAlign: "start",
-                            marginTop: 20,
-                          }}
-                        >
-                          Live videos show you what's really happening. Watch
-                          incidents unfold from different angles and follow
-                          along until they get resolved.
-                        </p>
-                      </div>
-                      <div style={{ marginBottom: 20 }}>
-                        <h1 style={{ textAlign: "start" }}>
-                          Fast, accurate information makes a meaningful
-                          difference in emergencies.
-                        </h1>
-                        <p
-                          style={{
-                            fontFamily: "sans-serif",
-                            fontSize: 20,
-                            textAlign: "start",
-                            marginTop: 20,
-                          }}
-                        >
-                          Citizen alerts go out instantly — this can be hours
-                          before Amber Alerts are even issued for children in
-                          danger. This speed has been critical in acting on
-                          important events like abductions and missing elderly
-                          people.
-                        </p>
-                      </div>
-                      <div style={{ marginBottom: 20 }}>
-                        <h1 style={{ textAlign: "start" }}>
-                          When you can, contribute to help resolve a situation.
-                        </h1>
-                        <p
-                          style={{
-                            fontFamily: "sans-serif",
-                            fontSize: 20,
-                            textAlign: "start",
-                            marginTop: 20,
-                          }}
-                        >
-                          You used to have to call a police tip line to help.
-                          Now you can use Citizen to broadcast live video,
-                          sharing relevant updates with others. You can also
-                          leave comments, which have helped locate missing
-                          people and share information about evacuation centers
-                          during natural disasters.
-                        </p>
-                      </div>
-                    </div>
-                  </Right>
-                </Grid>
-              </Grid>
-            </Box>
+              </Box>
+            </ThemeProvider>
           </div>
         </HeaderContainer>
         <div
@@ -159,10 +188,6 @@ const Details = () => {
           }}
         />
       </DetailWrapper>
-
-      {/* <MaskContainer>
-        <SvgMask backgroundColor="white" />
-      </MaskContainer> */}
     </DetailContainer>
   );
 };

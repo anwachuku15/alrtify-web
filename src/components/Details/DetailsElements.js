@@ -16,18 +16,10 @@ export const DetailWrapper = styled.div`
   inset: 0px;
   /* overflow: hidden;
   height: 130vh; */
-  background-color: white;
+  background-image: white;
   height: fit-content;
   width: 100%;
   max-width: 1440px;
-
-  /* @media screen and (max-width: 768px) {
-    max-height: 130vh;
-  }
-
-  @media screen and (max-width: 480px) {
-    max-height: 100vh;
-  } */
 
   @media screen and (min-width: 768px) {
     min-height: 900px;
@@ -42,18 +34,21 @@ export const HeaderContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding-left: 75px;
-  padding-left: 75px;
 
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 1024px) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  @media screen and (max-width: 768px) {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  @media screen and (min-width: 480px) {
+  @media screen and (max-width: 480px) {
     padding-left: 20px;
     padding-right: 20px;
-  }
+  } */
 `;
 
 export const LiveIndicatorContainer = styled.div`
@@ -68,26 +63,24 @@ export const LiveIndicatorContainer = styled.div`
 export const LivePill = styled.div`
   display: flex;
   flex-direction: row;
-  border-radius: 14px;
   height: 28px;
   background-color: red;
   position: relative;
   padding: 8px 10px;
   align-items: center;
+  border-radius: 14px;
+  border: 1px solid black;
 
   /* ::before {
-    z-index: 1;
     content: "";
+    display: block;
     position: absolute;
-    border-radius: 14px;
-    min-height: 28px;
+    background-color: rgba(black, 0.6);
     width: 100%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    animation: 3s ease 0s infinite normal both running;
-    border-color: red;
-    border-style: solid;
+    height: 100%;
+    border-radius: 14px;
+    animation: live 2s ease-in-out infinite;
+    z-index: -1;
   } */
 `;
 
@@ -124,13 +117,31 @@ export const DetailHeader = styled.div`
   margin-top: 30px;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 70%;
+
+  @media screen and (min-width: 1024px) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 export const DetailHeaderText = styled.p`
   font-size: 48px;
   text-align: center;
-  color: black;
+
+  @media screen and (max-width: 768px) {
+    font-size: 35px;
+  }
 `;
 
 export const DetailContent = styled.div`
@@ -188,5 +199,5 @@ export const MaskContainer = styled.div`
   max-width: 1440px;
   height: 0px;
   padding-bottom: 50%;
-  z-index: 6;
+  z-index: -6;
 `;
