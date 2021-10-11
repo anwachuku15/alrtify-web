@@ -17,7 +17,6 @@ import {
   GridWrapper,
 } from "./MapViewElements";
 import SvgMask from "./SvgMask";
-import "./MapView.css";
 import { MuiGrid } from "./AnimatedGrid";
 
 const MapView = () => {
