@@ -29,11 +29,16 @@ export const NavContainer = styled.div`
   width: 100%;
   padding: 0 20px;
   max-width: 1400px;
+
+  @media screen and (min-width: 1024px) {
+    padding: 0 100px;
+  }
 `;
 
 export const NavLogo = styled(ScrollLink)`
   cursor: pointer;
   width: 145px;
+  /* padding-left: 20px; */
 `;
 
 export const MobileIcon = styled.div`
@@ -42,7 +47,7 @@ export const MobileIcon = styled.div`
 
   @media screen and (max-width: 768px) {
     cursor: pointer;
-    display: flex;
+    display: none;
     font-size: 1.8rem;
     margin-top: auto;
     margin-bottom: auto;
@@ -128,7 +133,8 @@ export const NavMenuContainer = styled.div`
 `;
 
 export const NavMenu = styled.ul`
-  display: flex;
+  /* display: flex; */
+  display: none;
   align-items: center;
   justify-content: right;
   list-style: none;
@@ -139,10 +145,10 @@ export const NavMenu = styled.ul`
 
 export const NavButtons = styled.div`
   display: flex;
-  flex-direction: row;
-  @media screen and (max-width: 768px) {
+  /* flex-direction: row; */
+  /* @media screen and (max-width: 768px) {
     display: none;
-  }
+  } */
 `;
 
 export const NavItem = styled.li`
@@ -167,7 +173,7 @@ export const NavLinks = styled(ScrollLink)`
   font-variant: small-caps;
 
   &.active {
-    border-bottom-color: ${Colors.primaryBlue};
+    /* border-bottom-color: ${Colors.primaryBlue}; */
     transition: border-bottom-color 0.2s ease;
   }
 
