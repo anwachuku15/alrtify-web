@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import City from "../../assets/images/city.jpeg";
+import Globe from "../../assets/images/globe-new.jpeg";
 import Colors from "../../constants/Colors";
 
 export const MapViewContainer = styled.section`
@@ -7,9 +7,10 @@ export const MapViewContainer = styled.section`
   width: 100%;
   max-width: 1440px;
   margin: 0px auto;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
   overflow: hidden;
   transform-style: preserve-3d;
+  /* background-image: linear-gradient(white, white); */
   background-color: ${Colors.primaryBlue};
 `;
 
@@ -27,7 +28,7 @@ export const MapViewWrapper = styled.div`
 `;
 
 export const BackLayer = styled.div`
-  position: absolute;
+  /* position: absolute;
   inset: 0px;
   overflow: hidden;
 
@@ -37,17 +38,19 @@ export const BackLayer = styled.div`
 
   @media screen and (min-width: 480px) {
     min-height: 700px;
-  }
+  } */
 `;
-
 export const BackLayerImage = styled.div`
   position: absolute;
   inset: 0px 0px 0px;
-  background-image: url(${City});
+  mask-image: linear-gradient(to bottom, white, transparent);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(${Globe});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  mask-image: linear-gradient(to bottom, white, transparent);
+  transform: ${({ offsetY }) => `translateY(${offsetY * -0.1}px)`};
+  z-index: -1;
 `;
 
 export const MaskContainer = styled.div`
@@ -63,7 +66,7 @@ export const MaskContainer = styled.div`
 export const MapViewContentContainer = styled.div`
   position: relative;
   z-index: 10;
-  color: white;
+  /* color: white; */
 `;
 
 export const MapViewContentWrapper = styled.div`
@@ -99,19 +102,36 @@ export const MapViewContentPopups = styled.div`
 
 export const MapViewContentInfo = styled.div`
   width: 100%;
-  /* background-color: black; */
+  z-index: 9;
+  background-image: linear-gradient(
+    transparent,
+    ${Colors.primaryBlue},
+    ${Colors.primaryBlue},
+    ${Colors.primaryBlue}
+  );
+  /* background-color: ${Colors.primaryBlue}; */
 `;
 
-export const ContentInfoGrid = styled.div`
+export const GridWrapper = styled.div`
+  /* max-width: 100%; */
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeate(12, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
+  grid-gap: 16px;
+  /* padding: 0 50px; */
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const GridItem = styled.div`
-  grid-column: span 4 / auto;
-
-  @media screen and (max-width: 768px) {
-    grid-column: span 12 / auto;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  background-color: transparent;
 `;
