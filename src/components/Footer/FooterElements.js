@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Colors from "../../constants/Colors";
 
-export const FooterContainer = styled.section`
+export const FooterContainer = styled.div`
   display: flex;
   flex-flow: column wrap;
   background-color: ${Colors.primaryBlue};
   color: white;
-  height: 100vh;
+  /* height: 100vh; */
 `;
 
 export const FooterTop = styled.div`
@@ -14,24 +14,22 @@ export const FooterTop = styled.div`
   flex-direction: column;
   height: 50%;
   width: 100%;
-  padding: 96px 75px;
+  padding: 96px 75px 96px;
+  /* background-color: red; */
   justify-content: center;
-  border-bottom-width: thin;
+  /* border-bottom-width: thin;
   border-bottom-color: white;
-  border-bottom-style: solid;
+  border-bottom-style: solid; */
 
-  @media screen and (max-width: 768px) {
-    padding: 96px 30px;
-  }
-
-  @media screen and (max-width: 500px) {
-    padding: 96px 30px;
+  @media screen and (max-width: 992px) {
+    padding: 96px 30px 10px;
   }
 `;
 
 export const FooterTopWrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* background-color: blue; */
 `;
 
 export const FooterTopHeaderText = styled.h1`
@@ -55,13 +53,13 @@ export const FooterTopP = styled.p`
 
 export const Buttons = styled.div`
   /* display: flex; */
-  width: 100%;
+  width: 50%;
   margin-right: auto;
   margin-left: auto;
 
-  @media screen and (max-width: 580px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
-    width: 200px;
+    /* width: 200px; */
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
@@ -71,82 +69,42 @@ export const Buttons = styled.div`
 
 export const ButtonText = styled.div`
   font-variant: small-caps;
-  font-weight: 700;
+  font-size: 0.8em;
+  /* font-weight: 700; */
+  /* font-size: 0.5rem; */
 `;
 
-export const FooterBottom = styled.div`
-  display: flex;
-  height: 50%;
-`;
-
-export const FooterBottomWrapper = styled.div`
-  /* display: flex; */
+export const FooterEnd = styled.div`
   width: 100%;
-  flex-direction: row;
-  padding: 0 75px;
+  margin-top: 70px;
+`;
 
+export const FooterBottom = styled.div``;
+
+export const FooterCallToActionContainer = styled.div`
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media screen and (max-width: 992px) {
+    max-width: 960px;
+  }
   @media screen and (max-width: 768px) {
-    padding: 0 30px;
+    max-width: 720px;
   }
-  @media screen and (max-width: 580px) {
-    padding: 0 20px;
-  }
-`;
-
-export const FooterBottomLeft = styled.div`
-  display: flex;
-  width: 50%;
-`;
-
-export const FooterBottomRight = styled.div`
-  display: flex;
-  width: 50%;
-`;
-
-export const FooterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
-  min-height: 300px;
-  padding-top: 64px;
-  padding-bottom: 64px;
-`;
-
-export const FooterLogo = styled.div`
-  grid-area: 1 / 1 / auto / 7;
-
-  /* @media screen and (max-width: 768px) {
-        grid-area: 1 / 1 / auto / 7;
-    }     */
-  @media screen and (max-width: 580px) {
-    grid-area: 1 / 1 / auto / -1;
-    margin-bottom: 32px;
+  @media screen and (max-width: 576px) {
+    max-width: 540px;
   }
 `;
 
-export const FooterLinks = styled.div`
-  grid-area: 1 / 7 / auto / -1;
+export const FooterCallToAction = styled.div``;
 
-  @media screen and (max-width: 580px) {
-    grid-area: 2 / 1 / auto / -1;
-    margin-bottom: 32px;
-  }
-`;
-export const FooterLinksColumn = styled.div`
-  margin-right: 80px;
-  display: inline-block;
-  vertical-align: top;
-`;
-
-export const LinksHeader = styled.h4`
-  font-size: 14px;
-  line-height: 1.15;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: lowercase;
-  font-variant: small-caps;
-  margin-bottom: 32px;
-  @media screen and (max-width: 580px) {
-    font-size: 12px;
-  }
-`;
+// export const CallToActionGrid = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+// `
